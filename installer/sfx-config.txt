@@ -1,0 +1,5 @@
+;!@Install@!UTF-8!
+Title="Kodi Screen Reader 2.1.1"
+BeginPrompt="Install Kodi Screen Reader 2.1.1 for the current Windows user? Kodi itself is not included and must be closed."
+RunProgram="Install-Kodi-Screen-Reader-2.1.1.cmd"
+;!@InstallEnd@!

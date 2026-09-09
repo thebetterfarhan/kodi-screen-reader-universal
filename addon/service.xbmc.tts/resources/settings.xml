@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings version="1">
+  <section id="service.xbmc.tts">
+    <category id="screenreader" label="32202" help="32220">
+      <group id="1" label="32203">
+        <setting id="backend" type="string" label="32002" help="32221">
+          <level>0</level>
+          <default>tolk</default>
+          <constraints>
+            <options>
+              <option label="32204">tolk</option>
+              <option label="32205">SAPI</option>
+              <option label="32184">auto</option>
+              <option label="32206">log</option>
+            </options>
+          </constraints>
+          <control type="list" format="string"><heading>32002</heading></control>
+        </setting>
+        <setting id="reader_off" type="boolean" label="32032" help="32222">
+          <level>0</level><default>false</default><control type="toggle"/>
+        </setting>
+        <setting id="ACTION_DIAGNOSTICS" type="action" label="32207" help="32223">
+          <level>0</level>
+          <data>NotifyAll(service.xbmc.tts,SETTINGS.DIAGNOSTICS)</data>
+          <control type="button" format="action"/>
+        </setting>
+      </group>
+      <group id="2" label="32208">
+        <setting id="navigation_coalesce" type="boolean" label="32209" help="32224">
+          <level>0</level><default>true</default><control type="toggle"/>
+        </setting>
+        <setting id="speak_control_roles" type="boolean" label="32210" help="32225">
+          <level>0</level><default>true</default><control type="toggle"/>
+        </setting>
+        <setting id="speak_item_position" type="boolean" label="32211" help="32226">
+          <level>0</level><default>true</default><control type="toggle"/>
+        </setting>
+        <setting id="speak_selected_state" type="boolean" label="32212" help="32227">
+          <level>0</level><default>true</default><control type="toggle"/>
+        </setting>
+        <setting id="speak_list_count" type="boolean" label="32035" help="">
+          <level>0</level><default>true</default><control type="toggle"/>
+        </setting>
+      </group>
+    </category>
+    <category id="announcements" label="32029" help="">
+      <group id="1" label="32213">
+        <setting id="auto_item_extra" type="boolean" label="32033" help="">
+          <level>1</level><default>false</default><control type="toggle"/>
+        </setting>
+        <setting id="auto_item_extra_delay" type="integer" label="32034" help="" parent="auto_item_extra">
+          <level>1</level><default>2</default>
+          <constraints><minimum>1</minimum><step>1</step><maximum>60</maximum></constraints>
+          <dependencies><dependency type="enable" setting="auto_item_extra">true</dependency></dependencies>
+          <control type="slider" format="integer"><popup>false</popup></control>
+        </setting>
+        <setting id="speak_background_progress" type="boolean" label="32036" help="">
+          <level>1</level><default>false</default><control type="toggle"/>
+        </setting>
+        <setting id="background_progress_interval" type="integer" label="32037" help="" parent="speak_background_progress">
+          <level>1</level><default>5</default>
+          <constraints><minimum>1</minimum><step>1</step><maximum>60</maximum></constraints>
+          <dependencies><dependency type="enable" setting="speak_background_progress">true</dependency></dependencies>
+          <control type="slider" format="integer"><popup>false</popup></control>
+        </setting>
+        <setting id="speak_background_progress_during_media" type="boolean" label="32038" help="" parent="speak_background_progress">
+          <level>1</level><default>false</default>
+          <dependencies><dependency type="enable" setting="speak_background_progress">true</dependency></dependencies>
+          <control type="toggle"/>
+        </setting>
+      </group>
+    </category>
+    <category id="performance" label="32214" help="">
+      <group id="1" label="32215">
+        <setting id="override_poll_interval" type="boolean" label="32047" help="32228">
+          <level>1</level><default>false</default><control type="toggle"/>
+        </setting>
+        <setting id="poll_interval" type="integer" label="32048" help="32229" parent="override_poll_interval">
+          <level>1</level><default>40</default>
+          <constraints><minimum>30</minimum><step>10</step><maximum>500</maximum></constraints>
+          <dependencies><dependency type="enable" setting="override_poll_interval">true</dependency></dependencies>
+          <control type="slider" format="integer"><popup>false</popup></control>
+        </setting>
+        <setting id="reader_reconnect_max" type="integer" label="32216" help="32230">
+          <level>2</level><default>5</default>
+          <constraints><minimum>1</minimum><step>1</step><maximum>15</maximum></constraints>
+          <control type="slider" format="integer"><popup>false</popup></control>
+        </setting>
+      </group>
+      <group id="2" label="32217">
+        <setting id="debug_logging" type="boolean" label="32046" help="">
+          <level>1</level><default>false</default><control type="toggle"/>
+        </setting>
+        <setting id="verbose_logging" type="boolean" label="32049" help="32231" parent="debug_logging">
+          <level>2</level><default>false</default>
+          <dependencies><dependency type="enable" setting="debug_logging">true</dependency></dependencies>
+          <control type="toggle"/>
+        </setting>
+      </group>
+    </category>
+    <category id="keymap" label="32030" help="">
+      <group id="1" label="32218">
+        <setting id="ACTION_KEYMAP_INSTALL_DEFAULT" type="action" label="32039" help="">
+          <level>1</level><data>RunScript(service.xbmc.tts,keymap.INSTALL_DEFAULT)</data><control type="button" format="action"/>
+        </setting>
+        <setting id="ACTION_KEYMAP_INSTALL_CUSTOM" type="action" label="32040" help="">
+          <level>1</level><data>RunScript(service.xbmc.tts,keymap.INSTALL_CUSTOM)</data><control type="button" format="action"/>
+        </setting>
+        <setting id="ACTION_KEYMAP_EDIT" type="action" label="32041" help="">
+          <level>1</level><data>RunScript(service.xbmc.tts,keymap.EDIT)</data><control type="button" format="action"/>
+        </setting>
+        <setting id="ACTION_KEYMAP_RESET" type="action" label="32042" help="">
+          <level>1</level><data>RunScript(service.xbmc.tts,keymap.RESET)</data><control type="button" format="action"/>
+        </setting>
+        <setting id="ACTION_KEYMAP_REMOVE" type="action" label="32043" help="">
+          <level>1</level><data>RunScript(service.xbmc.tts,keymap.REMOVE)</data><control type="button" format="action"/>
+        </setting>
+      </group>
+    </category>
+    <category id="compatibility" label="32219" help="">
+      <group id="1" label="32219">
+        <setting id="disable_broken_backends" type="boolean" label="32045" help="">
+          <level>3</level><default>true</default><control type="toggle"/>
+        </setting>
+        <setting id="use_tmpfs" type="boolean" label="32044" help="">
+          <level>3</level><default>true</default><control type="toggle"/>
+        </setting>
+      </group>
+    </category>
+  </section>
+</settings>

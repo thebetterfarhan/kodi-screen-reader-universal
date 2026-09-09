@@ -1,0 +1,12 @@
+dist/
+build/
+*.7z
+*.pyc
+*.pyo
+__pycache__/
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
